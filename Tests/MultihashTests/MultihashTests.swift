@@ -1,15 +1,15 @@
 import XCTest
+import Base58
 @testable import Multihash
 
 final class MultihashTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Multihash().text, "Hello, World!")
+
+    func testFromBase58() {
+        let hash = Multihash(base58: "5drNu81uhrFLRiS4bxWgAkpydaLUPW")!
+        XCTAssertEqual(hash.code, Type.sha1)
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testFromBase58", testFromBase58),
     ]
 }
