@@ -27,7 +27,7 @@ targets: [
 
 let hash = Multihash(base58: "5drNu81uhrFLRiS4bxWgAkpydaLUPW")!
 hash.code
-hash.hash
+hash.digest
 
 ```
 

@@ -4,22 +4,22 @@ import Base58
 public class Multihash {
 
     let code: Type
-    let hash: Data
+    let digest: Data
 
     var length: Int {
-        return hash.count
+        return digest.count
     }
 
     var bytes: Data {
         var data = Data(repeating: 0, count: 0)
         data.append(contentsOf: [code.rawValue, UInt8(length)])
-        data.append(hash)
+        data.append(digest)
         return data
     }
 
     init(code: Type, hash: Data) {
         self.code = code
-        self.hash = hash
+        self.digest = hash
     }
 
     func toBase58() -> String? {
@@ -50,7 +50,7 @@ extension Multihash {
 extension Multihash: Equatable {
 
     public static func == (lhs: Multihash, rhs: Multihash) -> Bool {
-        return lhs.code == rhs.code && lhs.hash == rhs.hash
+        return lhs.code == rhs.code && lhs.digest == rhs.digest
     }
 
 }
