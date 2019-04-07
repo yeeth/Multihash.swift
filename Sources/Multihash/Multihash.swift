@@ -1,7 +1,7 @@
 import Foundation
 import Base58
 
-public class Multihash {
+public struct Multihash {
 
     let code: Type
     let digest: Data
@@ -30,7 +30,7 @@ public class Multihash {
 extension Multihash {
 
     // @todo error handling
-    convenience init?(base58 input: String) {
+    init?(base58 input: String) {
         let buffer = input.base58EncodedStringToBytes()
 
         if buffer.count < 2 {
